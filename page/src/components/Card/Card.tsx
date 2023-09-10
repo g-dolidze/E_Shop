@@ -55,7 +55,9 @@ const Card = ({ product, notify }: PropsType) => {
             </Link>
           </div>
         </div>
-        <div className="saleicon">
+        {/* uncomment next lines */}
+
+        {/* <div className="saleicon">
           {sales.map((item: Prodact) => {
             if (item.id === product.id) {
               return (
@@ -63,7 +65,7 @@ const Card = ({ product, notify }: PropsType) => {
               );
             }
           })}
-        </div>
+        </div> */}
       </div>
     </>
   );

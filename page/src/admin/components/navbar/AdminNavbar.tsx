@@ -50,7 +50,8 @@ const AdminNavbar = () => {
 
         <h4 onClick={() => setOpen(true)}>
           <DiscountIcon />
-          {hotSales.length}
+          {/* uncomment next lines */}
+          {/* {hotSales.length} */}
         </h4>
         <div className="admin_category">
           <Category setSearch={setSearch} />

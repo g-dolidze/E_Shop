@@ -24,9 +24,11 @@ function SalesDialog(props: PropsType) {
   const handleClose = () => {
     setOpen(false);
   };
-  if (Items.length === 0) {
-    handleClose();
-  }
+  // uncomment this lines 28 to 31
+
+  // if (Items.length === 0) {
+  //   handleClose();
+  // }
   const { t } = useTranslation();
   return (
     <div>
@@ -37,7 +39,8 @@ function SalesDialog(props: PropsType) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">Sales Products</DialogTitle>
-        <DialogContent>
+        {/*uncomment this lines 41 to 80*/}
+        {/* <DialogContent>
           {Items.map((item: Prodact) => {
             return (
               <Paper key={item.id}>
@@ -76,7 +79,7 @@ function SalesDialog(props: PropsType) {
               </Paper>
             );
           })}
-        </DialogContent>
+        </DialogContent> */}
         <DialogActions>
           <Button onClick={handleClose} autoFocus>
             {t("global.done")}

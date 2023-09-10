@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Card from "../../Card";
 import { Paper } from "@mui/material";
+import { string } from "yup";
 function ProductsCarusel() {
   var settings = {
     dots: true,
@@ -42,20 +43,29 @@ function ProductsCarusel() {
       },
     ],
   };
-  const sales = JSON.parse(localStorage.getItem("sales") as string);
-  return (
-    <Paper elevation={3} style={{ width: "90%", margin: "auto" }}>
-      <Slider {...settings}>
-        {sales.map((item: Prodact) => {
-          return (
-            <Paper key={item.id} sx={{ borderRadius: "20px", width: "250px" }}>
-              <Card product={item} />
-            </Paper>
-          );
-        })}
-      </Slider>
-    </Paper>
-  );
+
+  if (!localStorage.getItem("sales")) {
+    let sales = ["sales"];
+  } else {
+    let sales = JSON.parse(localStorage.getItem("sales") as string);
+
+    return (
+      <Paper elevation={3} style={{ width: "90%", margin: "auto" }}>
+        <Slider {...settings}>
+          {sales.map((item: Prodact) => {
+            return (
+              <Paper
+                key={item.id}
+                sx={{ borderRadius: "20px", width: "250px" }}
+              >
+                <Card product={item} />
+              </Paper>
+            );
+          })}
+        </Slider>
+      </Paper>
+    );
+  }
 }
 
 export default ProductsCarusel;
